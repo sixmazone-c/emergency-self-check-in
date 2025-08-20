@@ -1,0 +1,17 @@
+# deps & build
+node_modules/
+.next/
+out/
+dist/
+.contentlayer/
+.vercel/
+.turbo/
+
+# logs & misc
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.DS_Store
+
+# env
+.env*
