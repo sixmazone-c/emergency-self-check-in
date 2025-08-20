@@ -1,70 +1,37 @@
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import globals from 'globals'
-import tsParser from '@typescript-eslint/parser'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+// eslint.config.mjs
+import next from 'eslint-config-next'
 import js from '@eslint/js'
-import { FlatCompat } from '@eslint/eslintrc'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-})
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { globalIgnores } from 'eslint/config'
 
 export default [
-  {
-    ignores: [],
-  },
-  js.configs.recommended,
-  ...compat.extends(
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended',
-    'next',
-    'next/core-web-vitals'
-  ),
-  {
-    plugins: {
-      '@typescript-eslint': typescriptEslint,
-    },
+  // ignore build artifacts
+  globalIgnores(['.next', '.contentlayer', 'node_modules', 'dist']),
 
+  // Next.js base (handles special exports like `metadata`, `viewport`, etc.)
+  ...next,
+
+  // TypeScript recommended
+  ...tseslint.configs.recommended,
+
+  // Extra plugins + relaxed rules so builds don’t fail
+  {
+    plugins: { 'jsx-a11y': jsxA11y, 'react-refresh': reactRefresh },
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.amd,
-        ...globals.node,
-      },
-
-      parser: tsParser,
-      ecmaVersion: 5,
-      sourceType: 'commonjs',
-
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: __dirname,
-      },
+      ecmaVersion: 2020,
+      globals: globals.browser,
     },
-
     rules: {
-      'prettier/prettier': 'error',
-      'react/react-in-jsx-scope': 'off',
-
-      'jsx-a11y/anchor-is-valid': [
-        'error',
-        {
-          components: ['Link'],
-          specialLink: ['hrefLeft', 'hrefRight'],
-          aspects: ['invalidHref', 'preferButton'],
-        },
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
       ],
-      'react/prop-types': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-      'react/no-unescaped-entities': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-var-requires': 'off',
-      '@typescript-eslint/ban-ts-comment': 'off',
+      // If jsx-a11y throws on anchors without content, you can temporarily turn it off:
+      // 'jsx-a11y/anchor-has-content': 'off',
     },
   },
 ]

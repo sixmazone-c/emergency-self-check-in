@@ -4,7 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 export const dynamic = 'force-static'
 
 const handler = NewsletterAPI({
-  // @ts-ignore
+  // @ts-expect-error -- safe
   provider: siteMetadata.newsletter.provider,
 })
 
