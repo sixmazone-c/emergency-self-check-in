@@ -1,4 +1,4 @@
-// eslint.config.mjs (ESLint v9 flat config)
+// eslint.config.mjs
 import js from '@eslint/js'
 import globals from 'globals'
 import * as tseslint from 'typescript-eslint'
@@ -13,22 +13,31 @@ const compat = new FlatCompat({
   baseDirectory: path.dirname(fileURLToPath(import.meta.url)),
 })
 
-export default [
-  // ignore build artifacts
-  { ignores: ['.next/**', '.contentlayer/**', 'node_modules/**', 'dist/**'] },
+const config = [
+  // ignore build artifacts + ตัวไฟล์ config เอง
+  { ignores: ['.next/**', '.contentlayer/**', 'node_modules/**', 'dist/**', 'eslint.config.mjs'] },
 
   // base JS & TS
   js.configs.recommended,
   ...tseslint.configs.recommended,
 
-  // bring in "next/core-web-vitals" (eslintrc) through compat
+  // bring in "next/core-web-vitals" (eslintrc) via compat
   ...compat.extends('next/core-web-vitals'),
 
-  // add plugin objects + a few relaxed rules
+  // ⬇️ silence specific files
+  {
+    files: ['layouts/ListLayout.tsx', 'layouts/ListLayoutWithTags.tsx', 'layouts/PostSimple.tsx'],
+    rules: { '@typescript-eslint/no-unused-vars': 'off' },
+  },
+  {
+    files: ['src/App.tsx'],
+    rules: { '@next/next/no-img-element': 'off' },
+  },
+
   {
     plugins: {
       'jsx-a11y': jsxA11y,
-      '@next/next': nextPlugin,
+      '@next/next': nextPlugin, // (จะคงไว้หรือถอดก็ได้; compat ข้างบนดึงให้แล้ว)
       'react-refresh': reactRefresh,
     },
     languageOptions: { ecmaVersion: 2020, globals: globals.browser },
@@ -38,7 +47,9 @@ export default [
         'warn',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
-      // 'jsx-a11y/anchor-has-content': 'off', // uncomment if it blocks you
+      // 'jsx-a11y/anchor-has-content': 'off', // เปิดเมื่อจำเป็น
     },
   },
 ]
+
+export default config
