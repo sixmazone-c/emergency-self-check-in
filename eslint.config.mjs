@@ -26,9 +26,9 @@ const config = [
 
   // ⬇️ silence specific files
   {
-  files: ['layouts/ListLayout.tsx','layouts/ListLayoutWithTags.tsx','layouts/PostSimple.tsx'],
-  rules: { '@typescript-eslint/no-unused-vars': 'off' },
-  }
+    files: ['layouts/ListLayout.tsx', 'layouts/ListLayoutWithTags.tsx', 'layouts/PostSimple.tsx'],
+    rules: { '@typescript-eslint/no-unused-vars': 'off' },
+  },
   {
     files: ['layouts/ListLayout.tsx', 'layouts/ListLayoutWithTags.tsx', 'layouts/PostSimple.tsx'],
     rules: { '@typescript-eslint/no-unused-vars': 'off' },
