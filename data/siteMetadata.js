@@ -1,8 +1,8 @@
 /** @type {import('pliny/config').PlinyConfig} */
 const siteMetadata = {
-  title: 'Emergency',
+  title: 'Misumi Emergency',
   author: 'HR Safety Team',
-  headerTitle: 'Emergency Check-in',
+  headerTitle: 'Misumi Emergency',
   description:
     'ระบบเช็คอินความปลอดภัยเมื่อเกิดเหตุฉุกเฉิน พนักงานระบุสถานการณ์ของตนเองจากประกาศของ HR เช่น แผ่นดินไหว/อัคคีภัย',
   language: 'th-TH',
