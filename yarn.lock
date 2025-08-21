@@ -1088,29 +1088,29 @@
     "@citation-js/date" "^0.5.0"
     citeproc "^2.4.6"
 
-"@contentlayer2/cli@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/@contentlayer2/cli/-/cli-0.5.5.tgz"
-  integrity sha512-N0Jn0kj4XG6MzeYREYPxpT7/q+IZz+/C626cTjP21Gs0Ei0XYrdKoTVLBg32bwVhwvwgTm8miV5+F3vJc9ZFXg==
+"@contentlayer2/cli@0.5.8":
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/@contentlayer2/cli/-/cli-0.5.8.tgz"
+  integrity sha512-sPXTe24tXPpru6hE45riBj7xjVIDuTfjQXbwitwcNkm0yd0kNJaDPBA2C4U5mRFgg1a/aftlIKeVavlkBnuZQA==
   dependencies:
-    "@contentlayer2/core" "0.5.5"
-    "@contentlayer2/utils" "0.5.5"
+    "@contentlayer2/core" "0.5.8"
+    "@contentlayer2/utils" "0.5.8"
     clipanion "^3.2.1"
     typanion "^3.12.1"
 
-"@contentlayer2/client@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/@contentlayer2/client/-/client-0.5.5.tgz"
-  integrity sha512-YOTQIIDh+Krit5LOEI87eWooz+1HNOYI2tkGZivs7+VRc2nPVvvHTX6Ry9+FxQ0gSDmFQw5luxiWwhlIpcP2bQ==
+"@contentlayer2/client@0.5.8":
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/@contentlayer2/client/-/client-0.5.8.tgz"
+  integrity sha512-mc6uGuHI5ygO6s5KHhoFfiUN7BUUHrPUsxjU+EnGHjMo3+rcYnHd+G6cDDcf0fB21cX7NbJ57V9UlAMu5JKM0w==
   dependencies:
-    "@contentlayer2/core" "0.5.5"
+    "@contentlayer2/core" "0.5.8"
 
-"@contentlayer2/core@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/@contentlayer2/core/-/core-0.5.5.tgz"
-  integrity sha512-VAGcRSNPLd6SGS+NaVHbLqdAAXjezU45nSExzkSCGXSCIVRA9Uj63XYKUHQDD6hbdvPFBpLKzcoEFa6kGKZRxg==
+"@contentlayer2/core@0.5.8":
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/@contentlayer2/core/-/core-0.5.8.tgz"
+  integrity sha512-0DDlANRIceEiMhLRQ1S4nWPu2p/c6U7V469QqhtGbWcC2/kp2RAnbjhykf6cBUaXq7eeCxcQkBdg+Ns6Hn3KyQ==
   dependencies:
-    "@contentlayer2/utils" "0.5.5"
+    "@contentlayer2/utils" "0.5.8"
     camel-case "^4.1.2"
     comment-json "^4.2.3"
     esbuild ">=0.17"
@@ -1124,13 +1124,13 @@
     type-fest "^4.10.0"
     unified "^11.0.4"
 
-"@contentlayer2/source-files@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/@contentlayer2/source-files/-/source-files-0.5.5.tgz"
-  integrity sha512-TEVSn4T5RlASHQ0kCtV/DHpMfDc5Yg/U2v24RWyiTKp/yDq3iD04EFCw/O4x1LHpiUcFtKCW4waF0J6KNOxd4w==
+"@contentlayer2/source-files@0.5.8":
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/@contentlayer2/source-files/-/source-files-0.5.8.tgz"
+  integrity sha512-yoKjA7D8OeMV7KcRwq2ygnyAMw8x4BLx9du8EkA1nBg0uSAjOpNIBVvNjrSuRLnm1/WdH97BwKCQF0Qf1yz5kQ==
   dependencies:
-    "@contentlayer2/core" "0.5.5"
-    "@contentlayer2/utils" "0.5.5"
+    "@contentlayer2/core" "0.5.8"
+    "@contentlayer2/utils" "0.5.8"
     chokidar "^3.5.3"
     fast-glob "^3.2.12"
     gray-matter "^4.0.3"
@@ -1141,19 +1141,19 @@
     yaml "^2.3.1"
     zod "^3.22.4"
 
-"@contentlayer2/source-remote-files@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/@contentlayer2/source-remote-files/-/source-remote-files-0.5.5.tgz"
-  integrity sha512-d/8LDXtAUmncaCSSjKt0BsRq7N5hisbtoF19ASGStJ179K5btUMBt4KEwBzg0UTE2iY4kXBUpn8MZmYVHy7VBg==
+"@contentlayer2/source-remote-files@0.5.8":
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/@contentlayer2/source-remote-files/-/source-remote-files-0.5.8.tgz"
+  integrity sha512-sjk7QIB5NHeIM6J4/U7z7/ZUN+JENkN142tUHyQUagltlwYQ4Y9KMaa4RHmwYAfEwfTgQ6w0snPpQfINZY+MPw==
   dependencies:
-    "@contentlayer2/core" "0.5.5"
-    "@contentlayer2/source-files" "0.5.5"
-    "@contentlayer2/utils" "0.5.5"
+    "@contentlayer2/core" "0.5.8"
+    "@contentlayer2/source-files" "0.5.8"
+    "@contentlayer2/utils" "0.5.8"
 
-"@contentlayer2/utils@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/@contentlayer2/utils/-/utils-0.5.5.tgz"
-  integrity sha512-VnfwvIszsIfyIhkMsDutuVgKyeSwN36Mv+ClPl9fuTejR0uiKCyOKdGQTHJ2b5LDE+fFuySd2pTE7GDVXLBjTg==
+"@contentlayer2/utils@0.5.8":
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/@contentlayer2/utils/-/utils-0.5.8.tgz"
+  integrity sha512-KCC4qp5oCASW2jtUn8o4PLaaF/w0r9675gKnBCpbcpalZzFpZrqeH25VrHOTTMZZp7EeKqoKpiz2/WWq8i66MA==
   dependencies:
     "@effect-ts/core" "^0.60.5"
     "@effect-ts/otel" "^0.15.1"
@@ -3013,17 +3013,17 @@ concat-map@0.0.1:
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
-contentlayer2@^0.5.3, contentlayer2@0.5.5:
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/contentlayer2/-/contentlayer2-0.5.5.tgz"
-  integrity sha512-nz+pVYiY+k12G09Ty006xeIFB4ZgNQB8sZbzH6U2rvxcEOWGyPNZ/xbfuGGUu7I97DHcVgwxWh9zZUuL/4vsuQ==
+contentlayer2@^0.5.3, contentlayer2@^0.5.8, contentlayer2@0.5.8:
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/contentlayer2/-/contentlayer2-0.5.8.tgz"
+  integrity sha512-GlyhZdJALMyTRuxquE2AQ47kELupZKz4BIEpZeN/NiNV+3MmE61LW1bF7gpCZ+cIrKkSaDNTKbeLvEtsefslqA==
   dependencies:
-    "@contentlayer2/cli" "0.5.5"
-    "@contentlayer2/client" "0.5.5"
-    "@contentlayer2/core" "0.5.5"
-    "@contentlayer2/source-files" "0.5.5"
-    "@contentlayer2/source-remote-files" "0.5.5"
-    "@contentlayer2/utils" "0.5.5"
+    "@contentlayer2/cli" "0.5.8"
+    "@contentlayer2/client" "0.5.8"
+    "@contentlayer2/core" "0.5.8"
+    "@contentlayer2/source-files" "0.5.8"
+    "@contentlayer2/source-remote-files" "0.5.8"
+    "@contentlayer2/utils" "0.5.8"
 
 convert-source-map@^2.0.0:
   version "2.0.0"
@@ -6074,13 +6074,13 @@ needle@^2.5.2:
     iconv-lite "^0.4.4"
     sax "^1.2.4"
 
-next-contentlayer2@^0.5.3, next-contentlayer2@0.5.5:
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/next-contentlayer2/-/next-contentlayer2-0.5.5.tgz"
-  integrity sha512-ADaDVELWndW8I53nGNUPhePdimB+kTBCKl9dmm0AqKiD0fF7ZCt+dpCRqNbyl/7bFDfEXhKDdo8tCdbCc//UXg==
+next-contentlayer2@^0.5.3, next-contentlayer2@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.npmjs.org/next-contentlayer2/-/next-contentlayer2-0.5.8.tgz"
+  integrity sha512-3Xh8quPCFmg/QGa4qTnOwSsT3oNYCtmm+Ii0UlbOHxX59gHYVX9M5mTzkdUKiKC1aJfiGIPPGQXhKNfc6qvWZg==
   dependencies:
-    "@contentlayer2/core" "0.5.5"
-    "@contentlayer2/utils" "0.5.5"
+    "@contentlayer2/core" "0.5.8"
+    "@contentlayer2/utils" "0.5.8"
 
 next-themes@^0.3.0:
   version "0.3.0"
