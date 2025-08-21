@@ -9,7 +9,8 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "eslint . --ext .ts,.tsx --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "contentlayer build"
   },
   "dependencies": {
     "@headlessui/react": "2.2.0",
