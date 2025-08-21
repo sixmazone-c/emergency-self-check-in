@@ -1,23 +1,29 @@
-import { MetadataRoute } from 'next'
-import { allBlogs } from 'contentlayer/generated'
+// app/sitemap.ts
+import type { MetadataRoute } from 'next'
 import siteMetadata from '@/data/siteMetadata'
+import { allIncidents } from 'contentlayer/generated'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-static' // content is static from files
+
+// helper to turn contentlayer path into slug (e.g. "incidents/2025-08-21-earthquake-bkk" -> "2025-08-21-earthquake-bkk")
+const clean = (s: string) =>
+  s
+    .replace(/^incidents\//, '')
+    .replace(/^\/+/, '')
+    .split('/')
+    .pop()!
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = siteMetadata.siteUrl
+  const base = siteMetadata.siteUrl.replace(/\/$/, '')
 
-  const blogRoutes = allBlogs
-    .filter((post) => !post.draft)
-    .map((post) => ({
-      url: `${siteUrl}/${post.path}`,
-      lastModified: post.lastmod || post.date,
-    }))
-
-  const routes = ['', 'blog', 'projects', 'tags'].map((route) => ({
-    url: `${siteUrl}/${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
+  const incidentItems = allIncidents.map((p) => ({
+    url: `${base}/incidents/${encodeURIComponent(clean(p.slug))}`,
+    lastModified: new Date(p.lastmod || p.date),
   }))
 
-  return [...routes, ...blogRoutes]
+  return [
+    { url: `${base}/`, lastModified: new Date() },
+    { url: `${base}/incidents`, lastModified: new Date() },
+    ...incidentItems,
+  ]
 }
