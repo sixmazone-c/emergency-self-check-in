@@ -1,70 +1,59 @@
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import globals from 'globals'
-import tsParser from '@typescript-eslint/parser'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+// eslint.config.mjs
 import js from '@eslint/js'
+import globals from 'globals'
+import * as tseslint from 'typescript-eslint'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import nextPlugin from '@next/eslint-plugin-next'
 import { FlatCompat } from '@eslint/eslintrc'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: path.dirname(fileURLToPath(import.meta.url)),
 })
 
-export default [
-  {
-    ignores: [],
-  },
+const config = [
+  // ignore build artifacts + ตัวไฟล์ config เอง
+  { ignores: ['.next/**', '.contentlayer/**', 'node_modules/**', 'dist/**', 'eslint.config.mjs'] },
+
+  // base JS & TS
   js.configs.recommended,
-  ...compat.extends(
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended',
-    'next',
-    'next/core-web-vitals'
-  ),
+  ...tseslint.configs.recommended,
+
+  // bring in "next/core-web-vitals" (eslintrc) via compat
+  ...compat.extends('next/core-web-vitals'),
+
+  // ⬇️ silence specific files
+  {
+  files: ['layouts/ListLayout.tsx','layouts/ListLayoutWithTags.tsx','layouts/PostSimple.tsx'],
+  rules: { '@typescript-eslint/no-unused-vars': 'off' },
+  }
+  {
+    files: ['layouts/ListLayout.tsx', 'layouts/ListLayoutWithTags.tsx', 'layouts/PostSimple.tsx'],
+    rules: { '@typescript-eslint/no-unused-vars': 'off' },
+  },
+  {
+    files: ['src/App.tsx'],
+    rules: { '@next/next/no-img-element': 'off' },
+  },
+
   {
     plugins: {
-      '@typescript-eslint': typescriptEslint,
+      'jsx-a11y': jsxA11y,
+      '@next/next': nextPlugin, // (จะคงไว้หรือถอดก็ได้; compat ข้างบนดึงให้แล้ว)
+      'react-refresh': reactRefresh,
     },
-
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.amd,
-        ...globals.node,
-      },
-
-      parser: tsParser,
-      ecmaVersion: 5,
-      sourceType: 'commonjs',
-
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: __dirname,
-      },
-    },
-
+    languageOptions: { ecmaVersion: 2020, globals: globals.browser },
     rules: {
-      'prettier/prettier': 'error',
-      'react/react-in-jsx-scope': 'off',
-
-      'jsx-a11y/anchor-is-valid': [
-        'error',
-        {
-          components: ['Link'],
-          specialLink: ['hrefLeft', 'hrefRight'],
-          aspects: ['invalidHref', 'preferButton'],
-        },
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
-      'react/prop-types': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-      'react/no-unescaped-entities': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-var-requires': 'off',
-      '@typescript-eslint/ban-ts-comment': 'off',
+      // 'jsx-a11y/anchor-has-content': 'off', // เปิดเมื่อจำเป็น
     },
   },
 ]
+
+export default config
