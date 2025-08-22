@@ -61,6 +61,7 @@ export const Incidents = defineDocumentType(() => ({
     areas: { type: 'list', of: { type: 'string' } },
     hotline: { type: 'string' },
     mapUrl: { type: 'string' },
+    cta: { type: 'string' },
   },
   computedFields: {
     readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
