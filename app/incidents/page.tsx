@@ -31,7 +31,7 @@ export default function IncidentsPage() {
 
             <div className="mt-3 flex items-center gap-4">
               <Link
-                href={`/check-in?incident=${encodeURIComponent(post.slug)}`}
+                href={`/checkin?incident=${encodeURIComponent(post.slug)}`}
                 className="text-primary-600 hover:text-primary-700 dark:hover:text-primary-400"
                 aria-label={`Read more: "${post.title}"`}
               >
@@ -39,7 +39,7 @@ export default function IncidentsPage() {
               </Link>
 
               <Link
-                href={`/check-in?incident=${encodeURIComponent(post.slug)}`}
+                href={`/checkin?incident=${encodeURIComponent(post.slug)}`}
                 className="inline-flex items-center rounded-lg bg-red-600 px-3 py-1.5 text-white hover:bg-red-700"
               >
                 Check-in
